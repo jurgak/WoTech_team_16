@@ -1,0 +1,59 @@
+### Task 1 and proceed further as complexity will increase:
+To complete the tasks use 'transaction_dataset.csv'
+Task 1: Create a bar chart that shows the count of customers for each unique value in the 'Gender' column (including NaN values). - easy
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+dataset = pd.read_csv('/content/transaction_dataset.csv')
+
+gender_counts = dataset['Gender'].value_counts(dropna=False)
+
+gender_counts.plot(kind='bar', color=['skyblue', 'pink', 'yellow'])
+plt.title('Count of Customers by Gender')
+plt.xlabel('Gender')
+plt.ylabel('Count')
+plt.show()
+
+###Task 2: Create a horizontal bar chart that shows the top 5 most frequent names in the DataFrame, based on the 'name' column. 
+(First, create a grouped DataFrame (name_df), then filter it using iloc, and finally create the visualization.) -medium
+
+1st version 
+
+name_df = transactions['Name'].value_counts()
+name_df_5 = name_df.iloc[:5]
+name_df_5.plot(kind='barh')
+plt.title('TOP 5 names in the dataset')
+plt.xlabel('Count of occurences')
+plt.ylabel('Names')
+plt.show()
+
+2nd version 
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+dataset = pd.read_csv('/content/transaction_dataset.csv')
+
+name_fd = dataset['Name'].value_counts().reset_index()
+name_fd.columns = ['Name', 'Count']
+
+top_5_names = name_fd.iloc[:5]
+
+top_5_names.plot(kind='barh', x='Name', y='Count', color='yellow')
+plt.title('The top 5 most frequent names')
+plt.xlabel('Count')
+plt.ylabel('Name')
+plt.show()
+
+### Task 3: Create a filtered DataFrame that includes Category == 'Clothing' and Gender == 'M'. 
+How many rows are there in this filtered DataFrame? Format the result as follows: The filtered DataFrame has XXXX rows. - hard
+
+filtered_df = transactions[(transactions['Category'] == 'Clothing') & (transactions['Gender'] == 'M')]
+
+# Count the number of rows
+num_rows = filtered_df.shape[0]
+
+# Format and print the result
+print(f"The filtered DataFrame has {num_rows} rows.")
