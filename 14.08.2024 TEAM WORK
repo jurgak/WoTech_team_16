@@ -1,0 +1,84 @@
+java UserController
+package com.datorium.Datorium.API.Controllers;
+
+import com.datorium.Datorium.API.DTOs.User;
+import com.datorium.Datorium.API.Services.UserService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/user")
+
+public class UserController {
+
+    private UserService userService;
+    public UserController(){
+        userService = new UserService();
+
+    }
+    //CRUD
+    //AddUser
+    //UpdateUser
+    //GetUser
+    //DeleteUser
+
+    @PostMapping("/add") //localhost:8080/test -> localhost:8080/user/test
+    public int add(@RequestBody User user) {
+        return userService.add(user);
+
+    }
+    @GetMapping("/all")
+    public List<User> getAll() {
+        return userService.getAll();
+    }
+}
+___________________________________________________________________________________________
+
+java UserService
+
+package com.datorium.Datorium.API.Services;
+import com.datorium.Datorium.API.DTOs.User;
+import com.datorium.Datorium.API.Repo.UserRepo;
+
+import java.util.List;
+
+public class UserService {
+    private UserRepo userRepo;
+
+    public UserService(){
+        userRepo = new UserRepo();
+
+    }
+    public int add(User user){
+       return userRepo.add(user);
+    }
+
+    public List<User> getAll() {
+        return userRepo.getAll();
+    }
+}
+______________________________________________________________________________________
+
+java UserRepo
+
+package com.datorium.Datorium.API.Repo;
+
+import com.datorium.Datorium.API.DTOs.User;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class UserRepo {
+
+    private ArrayList<User> users = new ArrayList<>();
+
+    public int add(User user) {
+        users.add(user);
+        return users.size();
+    }
+
+    public List<User> getAll() {
+        return users;
+    }
+}
