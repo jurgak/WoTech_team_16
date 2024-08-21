@@ -13,3 +13,15 @@ SELECT * FROM Pets WHERE LENGTH(Name) BETWEEN 2 AND 5;
 SELECT * FROM Pets WHERE Name BETWEEN 'A' AND 'D';
 
 SELECT * FROM Pets WHERE Kind='Dog' AND Name BETWEEN 'A' AND 'D';
+
+SELECT Name * FROM Pets ORDER BY Name ASC; (ordering names by alphabetically)
+
+SELECT COUNT(*) FROM Pets; (Counting the number of pets in the table 2327)
+
+SELECT AVG (Age) FROM Pets; (Calculates average age of all pets in the table witch is 11,22 years)
+
+SELECT Kind, COUNT(*) AS NumberOfPets FROM Pets GROUP BY Kind; (This counts the number of pets for each kind Dogs 1231, Cats 863, Birds 233)
+
+SELECT Name FROM Pets WHERE Name LIKE 'C%e'; (Give all pets names which start with C and ends with E like Cassie, Cookie)
+
+SELECT name, COUNT(*) as name_count FROM pets GROUP BY name ORDER BY name_count DESC; (Gives most popular pet name, in our list is Biscuit most popular name)
