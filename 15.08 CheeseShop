@@ -1,6 +1,6 @@
-
-Cheese class
 ```java
+Cheese class:
+
 package com.datorium.Datorium.API.cheese.Dtos;
 
 public class Cheese {
