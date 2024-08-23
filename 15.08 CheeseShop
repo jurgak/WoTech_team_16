@@ -1,3 +1,5 @@
+```java
+
 Cheese class
 
 package com.datorium.Datorium.API.cheese.Dtos;
@@ -112,3 +114,4 @@ public class UpdateCheeseDTO {
     public int cheeseIndex;
 }
 
+```
