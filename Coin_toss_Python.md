@@ -82,8 +82,6 @@ for idx, n_trials in enumerate(trial_sets):
 plt.tight_layout()
 plt.show()
 
-![download](https://github.com/user-attachments/assets/ba0bf5f2-4654-462b-a32f-dfd9309042bb)
-
 
 # Theoretical probabilities (since each outcome has a 1/4 chance)
 
@@ -91,8 +89,9 @@ theoretical_probabilities = {'HH': 1/4, 'HT': 1/4, 'TH': 1/4, 'TT': 1/4}
 print("\nTheoretical Probabilities:", theoretical_probabilities)
 
 Theoretical Probabilities: {'HH': 0.25, 'HT': 0.25, 'TH': 0.25, 'TT': 0.25}
-```
 
+```
+![download](https://github.com/user-attachments/assets/ba0bf5f2-4654-462b-a32f-dfd9309042bb)
 
 
 
